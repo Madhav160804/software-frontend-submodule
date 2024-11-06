@@ -38,6 +38,7 @@ const facultyButtons = [
   { name: "Student Allotment", url: "/btech-guide-allotment" },
   { name: "Marks Submission", url: "/b/Tw" },
   { name: "Reports", url: "/report" },
+  { name: "Preference Viewing", url: "/course-selection" }
 ];
 
 const studentButtons = [
