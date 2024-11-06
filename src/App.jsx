@@ -18,6 +18,11 @@ import Student from './components/Student'
 import StudentStatus from './components/StudentStatus'
 import TwoFactorAuthentication from './components/2FactorAuth'
 import ForgotPassword from './components/ForgotPassword'
+import CourseSelectionPage from './components/CourseSelectionPage'; // Import CourseSelectionPage
+import ProjectSelectionPage from './components/ProjectSelectionPage'; // Import ProjectSelectionPage
+import PreferenceViewingPage from './components/PreferenceViewingPage';// Import PreferenceViewingPage
+import PreferenceViewingPagemajor from './components/PreferenceViewingPagemajor';
+import PreferenceViewingPageminor from './components/PreferenceViewingPageminor';
 
 function App() {
   const {adminUser,setAdminUser} = useAdminContext();
@@ -48,6 +53,11 @@ function App() {
       <Route path="/b/examiner" element={<Examiner />} />
       <Route path="/b/student" element={<Student />} />
       <Route path="/b/studentstatus" element={<StudentStatus />} />
+     <Route path="/course-selection" element={<CourseSelectionPage />} />
+        <Route path="/project-selection" element={<ProjectSelectionPage />} />
+        <Route path="/preference-viewing" element={<PreferenceViewingPage />} />
+        <Route path="/preference-viewing-minor" element={<PreferenceViewingPageminor />} />
+        <Route path="/preference-viewing-major" element={<PreferenceViewingPagemajor />} />
     </Routes>
       {adminUser ? <Footer user={user}/> : <></>}
     </div>
