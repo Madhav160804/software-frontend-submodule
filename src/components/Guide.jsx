@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import './styles.css';
+import guidesc from '../images/guidesc.png';
 emailjs.init("PCF_pjb2Ugr7vdxEU");
 
 
@@ -289,7 +290,7 @@ const submitAllMarks = () => {
 
       {/* Image Section */}
       <div className="image-container">
-        <img src="guidesc.png" alt="Guide Screenshot" />
+        <img src={guidesc} alt="Guide Screenshot" />
       </div>
 
       {/* Student List Title */}
@@ -411,3 +412,4 @@ const submitAllMarks = () => {
 };
 
 export default Guide;
+
