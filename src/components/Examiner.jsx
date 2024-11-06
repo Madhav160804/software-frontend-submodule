@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import './styles.css';
+import examinersc from '../images/examinersc.png';
+import examinersc2 from '../images/examinersc2.png';
+
 emailjs.init("PCF_pjb2Ugr7vdxEU");
 
 
@@ -283,8 +286,8 @@ const submitAllMarks = () => {
 
       {/* Image Section */}
       <div className="image-container">
-        <img src="examinersc2.png" alt="Examiner Screenshot 2" />
-        <img src="examinersc.png" alt="Examiner Screenshot" />
+        <img src={examinersc} alt="Examiner Screenshot 2" />
+        <img src={examinersc2} alt="Examiner Screenshot" />
       </div>
 
       {/* Student List Title */}
@@ -408,3 +411,4 @@ const submitAllMarks = () => {
 };
 
 export default Examiner;
+
