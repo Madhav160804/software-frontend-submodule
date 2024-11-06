@@ -36,7 +36,7 @@ const user = {
 // Separate button links for students and faculty
 const facultyButtons = [
   { name: "Student Allotment", url: "/btech-guide-allotment" },
-  { name: "Grades", url: "/b/guide" },
+  { name: "Grades", url: "/b/Tw" },
   { name: "Reports", url: "/report" },
 ];
 
