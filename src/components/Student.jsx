@@ -33,7 +33,7 @@ const Student = () => {
     // Table structure with total mid-sem and end-sem marks
     return (
         <Box minH="100vh" bgGradient="linear(to-b, blue.100, purple.100)">
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', backgroundColor: '#E5E7EB' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
             <div style={{ backgroundColor: '#F3F4F6', padding: '24px', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', width: '100%', maxWidth: '800px' }}>
                 <div style={{ marginBottom: '16px', textAlign: 'center' }}>
                     <h2 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '8px', color: 'white', padding: '8px', borderRadius: '4px', backgroundColor: '#6366F1' }}>
