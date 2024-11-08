@@ -3,6 +3,7 @@ import emailjs from 'emailjs-com';
 import './styles.css';
 import examinersc from '../images/examinersc.png';
 import examinersc2 from '../images/examinersc2.png';
+import { Box } from "@chakra-ui/react";
 
 emailjs.init("PCF_pjb2Ugr7vdxEU");
 
@@ -278,6 +279,7 @@ const submitAllMarks = () => {
 
 
   return (
+     <Box minH="100vh" bgGradient="linear(to-b, blue.100, purple.100)">
     <div className="examiner-container">
       {/* Header */}
       <div className="header">
@@ -407,6 +409,7 @@ const submitAllMarks = () => {
         </div>
       )}
     </div>
+  </Box>
   );
 };
 
