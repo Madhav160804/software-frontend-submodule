@@ -166,7 +166,7 @@ const Examiner = () => {
 
     if (currentStudent) {
       localStorage.setItem(`examiner_${currentStudent.registerNumber}_${modalOpen}`, JSON.stringify(currentMarks));
-      alert('Marks have been successfully submitted!');
+      alert('Marks have been successfully saved!');
       closeModal();
     }
   };
@@ -219,8 +219,22 @@ const calculateCurrentTotal = () => {
   const currentMarks = marks[modalOpen];
   return Object.values(currentMarks).reduce((sum, mark) => sum + (parseInt(mark) || 0), 0);
 };
-
+let isEmailSent = false;
 const submitAllMarks = () => {
+  if (isEmailSent) {
+    alert("Marks have already been submitted.");
+    return; // Exit the function if the email is already sent
+  }
+
+  // Display a confirmation dialog
+  const confirmSubmission = confirm("Are you sure you want to submit marks?");
+  
+  if (!confirmSubmission) {
+    alert("Submission canceled. You can still submit marks.");
+    return; // Exit function if user cancels submission
+  }
+
+  // Collect marks data
   const allMarks = students.map((student) => {
     const midSemMarks = JSON.parse(localStorage.getItem(`examiner_${student.registerNumber}_midSem`)) || {};
     const endSemMarks = JSON.parse(localStorage.getItem(`examiner_${student.registerNumber}_endSem`)) || {};
@@ -262,7 +276,7 @@ const submitAllMarks = () => {
     emailContent += '\n'; // Add space between students
   });
 
-  // Sending email using EmailJS
+  // Send email using EmailJS
   emailjs.send('service_2httliq', 'template_tqb9dri', {
     message: emailContent,
     to_email: 'amane.eken@gmail.com' // replace with recipient's email
@@ -270,11 +284,13 @@ const submitAllMarks = () => {
   .then((response) => {
     console.log('Email sent successfully!', response.status, response.text);
     alert('All marks have been emailed successfully!');
+
+    // Set the flag to true, indicating the email has been sent
+    isEmailSent = true;
+
+    // Disable the submit button after successful submission
+    document.getElementById("submitMarksButton").disabled = true;
   })
-  .catch((error) => {
-    console.error('Failed to send email:', error);
-    alert('Failed to send email. Please try again later.');
-  });
 };
 
 
@@ -358,11 +374,29 @@ const submitAllMarks = () => {
       </div>
 
       {/* Submit All Marks Button */}
-      <div className="submit-button-container">
-        <button onClick={submitAllMarks}>
-          Submit All Marks
-        </button>
-      </div>
+      <div 
+  className="submit-button-container" 
+  style={{
+    display: 'flex', 
+    justifyContent: 'center', 
+    marginTop: '16px' // optional spacing above button
+  }}
+>
+  <button
+    onClick={submitAllMarks}
+    style={{
+      backgroundColor: '#6366f1',
+      color: 'white',
+      border: 'none',
+      padding: '10px 20px',
+      borderRadius: '4px',
+      cursor: 'pointer',
+      fontSize: '16px'
+    }}
+  >
+    Submit All Marks
+  </button>
+</div>
 
       {/* Modal */}
       {modalOpen && (
@@ -401,10 +435,44 @@ const submitAllMarks = () => {
 </div>
 
       </div>
-      <div className="button-group">
-        <button onClick={submitMarks}>Submit Marks</button>
-        <button onClick={closeModal}>Close</button>
-      </div>
+      <div 
+  className="button-group" 
+  style={{
+    display: 'flex', 
+    justifyContent: 'center', 
+    gap: '8px', // space between buttons
+    marginTop: '16px' // optional spacing above buttons
+  }}
+>
+  <button
+    onClick={submitMarks}
+    style={{
+      backgroundColor: '#6366f1',
+      color: 'white',
+      border: 'none',
+      padding: '8px 16px',
+      borderRadius: '4px',
+      cursor: 'pointer',
+      fontSize: '16px'
+    }}
+  >
+    Save Marks
+  </button>
+  <button
+    onClick={closeModal}
+    style={{
+      backgroundColor: '#6366f1',
+      color: 'white',
+      border: 'none',
+      padding: '8px 16px',
+      borderRadius: '4px',
+      cursor: 'pointer',
+      fontSize: '16px'
+    }}
+  >
+    Close
+  </button>
+</div>
     </div>
         </div>
       )}
@@ -414,4 +482,6 @@ const submitAllMarks = () => {
 };
 
 export default Examiner;
+
+
 
