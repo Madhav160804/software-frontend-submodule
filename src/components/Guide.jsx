@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import './styles.css';
 import guidesc from '../images/guidesc.png';
+import { Box } from "@chakra-ui/react";
 emailjs.init("PCF_pjb2Ugr7vdxEU");
 
 
 const Guide = () => {
   const [students, setStudents] = useState([
-    { registerNumber: '011', name: 'John', projectType: 'MAJOR', midSemStatus: 'Inomplete' , endSemStatus: 'Incomplete' },
-    { registerNumber: '012', name: 'Jane', projectType: 'MINOR', midSemStatus: 'Inomplete' , endSemStatus: 'Incomplete' },
-    { registerNumber: '013', name: 'Ria D', projectType: 'MAJOR', midSemStatus: 'Inomplete' , endSemStatus: 'Incomplete' },
-    { registerNumber: '044', name: 'Brown', projectType: 'MAJOR', midSemStatus: 'Inomplete' , endSemStatus: 'Incomplete' },
+    { registerNumber: '111', name: 'John', projectType: 'MAJOR', midSemStatus: 'Incomplete' , endSemStatus: 'Incomplete' },
+    { registerNumber: '112', name: 'Jane', projectType: 'MINOR', midSemStatus: 'Incomplete' , endSemStatus: 'Incomplete' },
+    { registerNumber: '113', name: 'Ria D', projectType: 'MAJOR', midSemStatus: 'Incomplete' , endSemStatus: 'Incomplete' },
+    { registerNumber: '144', name: 'Brown', projectType: 'MAJOR', midSemStatus: 'Incomplete' , endSemStatus: 'Incomplete' },
   ]);
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -282,6 +283,7 @@ const submitAllMarks = () => {
 
 
   return (
+    <Box minH="100vh" bgGradient="linear(to-b, blue.100, purple.100)">
     <div className="examiner-container">
       {/* Header */}
       <div className="header">
@@ -408,6 +410,7 @@ const submitAllMarks = () => {
         </div>
       )}
     </div>
+  </Box>
   );
 };
 
