@@ -1,4 +1,5 @@
 import React from 'react';
+import { Box } from "@chakra-ui/react";
 
 const Student = () => {
     // Data for the table with guide and examiner marks
@@ -31,6 +32,7 @@ const Student = () => {
 
     // Table structure with total mid-sem and end-sem marks
     return (
+        <Box minH="100vh" bgGradient="linear(to-b, blue.100, purple.100)">
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', backgroundColor: '#E5E7EB' }}>
             <div style={{ backgroundColor: '#F3F4F6', padding: '24px', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', width: '100%', maxWidth: '800px' }}>
                 <div style={{ marginBottom: '16px', textAlign: 'center' }}>
@@ -71,6 +73,7 @@ const Student = () => {
                 </div>
             </div>
         </div>
+            </Box>
     );
 };
 
