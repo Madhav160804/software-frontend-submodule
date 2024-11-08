@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
+import { Box } from "@chakra-ui/react";
 const Tw = () => {
     return (
+        <Box minH="100vh" bgGradient="linear(to-b, blue.100, purple.100)">
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div>
                 <div className="mb-4">
@@ -22,6 +24,7 @@ const Tw = () => {
                 </div>
             </div>
         </div>
+     </Box>
     );
 };
 
